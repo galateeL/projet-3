@@ -14,6 +14,7 @@
             <div class="modal-footer">
                 <form action="${pageContext.request.contextPath}/contacts/delete/${contact.id}" method="post">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abandon</button>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <button type="submit" class="btn" style="background-color: #a8eaa8; color:white">Confirm</button>
                 </form>
             </div>

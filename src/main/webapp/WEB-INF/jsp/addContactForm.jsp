@@ -56,11 +56,12 @@
         </div>
 
 
-
+         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <button type="submit" class="btn" style="background: #ff5630; color: white">add
         </button>
 
     </form>
+</div>
 
 
 </body>

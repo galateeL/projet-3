@@ -25,7 +25,7 @@ public class ContactService {
 
     public List<Contact> getAllContacts(String keyword) {
         if(keyword != null) {
-            return this.contactRepository.findAllByLastname(keyword);
+            return this.contactRepository.findByLastnameOrFirstnameOrPhoneNumber(keyword);
         }
 
         return (List<Contact>) this.contactRepository.findAll();

@@ -42,14 +42,9 @@ public class UserService {
                 .findByEmail(email);
 
 
-               // .findById(id)
-             // .orElseThrow(() ->new UserNotFoundException(id));
-              // .orElseThrow(() ->new UserNotFoundException(email));
-
         user.setLastname(editUser.getLastname());
         user.setFirstName(editUser.getFirstName());
         user.setEmail(editUser.getEmail());
-        user.setPassword(editUser.getPassword());
         user.setPictureUrl(editUser.getPictureUrl());
 
         this.userRepository.save(user);

@@ -26,10 +26,6 @@
                         <input type="text" class="form-control" id="email-u" name="email" value="${user.email}">
                     </div>
 
-                    <div class="mb-2">
-                        <label for="password-u" class="form-label">Password</label>
-                        <input type="text" class="form-control" id="password-u" name="password">
-                    </div>
 
 
                     <div class="mb-2">
@@ -40,6 +36,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abandon</button>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <button type="submit" class="btn" style="background-color: #a8eaa8; color:white">Confirm</button>
                     </div>
                 </form>
