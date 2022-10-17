@@ -6,6 +6,7 @@ import com.example.projet3.repository.EditUser;
 import com.example.projet3.repository.entity.Contact;
 import com.example.projet3.repository.entity.User;
 import com.example.projet3.service.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -75,10 +76,6 @@ public class UserController {
         userService.editUser(editUser, email);
         return "redirect:/account";
     }
-
-
-    //        User user = userService.findUserByEmail(email);
-//        Long id = user.getId();
 
 
 }

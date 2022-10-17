@@ -23,9 +23,8 @@
 
                     <div class="mb-2">
                         <label for="email-u" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email-u" name="email" value="${user.email}">
+                        <input type="text" class="form-control" id="email-u" name="email" value="${user.email}" disabled="disabled">
                     </div>
-
 
 
                     <div class="mb-2">

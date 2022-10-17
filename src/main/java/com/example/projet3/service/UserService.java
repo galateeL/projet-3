@@ -42,7 +42,6 @@ public class UserService {
 
         user.setLastname(editUser.getLastname());
         user.setFirstName(editUser.getFirstName());
-        user.setEmail(editUser.getEmail());
         user.setPictureUrl(editUser.getPictureUrl());
 
         this.userRepository.save(user);
