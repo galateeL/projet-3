@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+
 @Service
 public class ContactService {
 
@@ -25,8 +26,8 @@ public class ContactService {
 
 
     public List<Contact> getAllContacts(String keyword, User user) {
-        if(keyword != null) {
-            return this.contactRepository.findByLastnameOrFirstnameOrPhoneNumber(keyword,user.getEmail());
+        if (keyword != null) {
+            return this.contactRepository.findByLastnameOrFirstnameOrPhoneNumber(keyword, user.getEmail());
         }
 
         return this.contactRepository.findAllByUserEmail(user.getEmail());
@@ -43,7 +44,7 @@ public class ContactService {
                 .orElseThrow(() -> new ContactNotFoundException(id));
     }
 
-    public void createContact (CreateContact createContact, User user) {
+    public void createContact(CreateContact createContact, User user) {
 
 
         Contact c = new Contact();
@@ -62,7 +63,7 @@ public class ContactService {
         this.contactRepository.deleteById(id);
     }
 
-    public void editContact (Long id, EditContact editContact) {
+    public void editContact(Long id, EditContact editContact) {
         Contact contact = this.contactRepository
                 .findById(id)
                 .orElseThrow(() -> new ContactNotFoundException(id));
@@ -77,12 +78,6 @@ public class ContactService {
         this.contactRepository.save(contact);
 
     }
-
-
-
-
-
-
 
 
 }

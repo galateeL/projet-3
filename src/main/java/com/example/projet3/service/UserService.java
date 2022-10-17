@@ -17,8 +17,7 @@ public class UserService {
     }
 
     public void register(CreateUser createUser) {
-       BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         User newUser = new User();
         newUser.setEmail(createUser.getEmail());
@@ -36,11 +35,10 @@ public class UserService {
 
     }
 
-    public void editUser (EditUser editUser, String email) {
+    public void editUser(EditUser editUser, String email) {
 
         User user = this.userRepository
                 .findByEmail(email);
-
 
         user.setLastname(editUser.getLastname());
         user.setFirstName(editUser.getFirstName());
@@ -48,7 +46,6 @@ public class UserService {
         user.setPictureUrl(editUser.getPictureUrl());
 
         this.userRepository.save(user);
-
 
     }
 

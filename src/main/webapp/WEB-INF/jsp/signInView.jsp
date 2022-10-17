@@ -15,7 +15,15 @@
 </head>
 <body>
 
-<h1 class="m-5" style="font-family: 'Pacifico', cursive; color: #05516b; font-size: 35px; text-align: center">Sign in</h1>
+<header>
+    <jsp:include page="headerSign.jsp"/>
+</header>
+
+<h1 class="m-3" style="font-family: 'Pacifico', cursive; color: #05516b; font-size: 35px; text-align: center">Sign in</h1>
+
+<div class="d-flex justify-content-center">
+<img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000" style="height: 150px"alt=""/>
+</div>
 
 <div class="row d-flex justify-content-center">
     <div class="col-sm-4 col-xl-4 m-1">
@@ -30,12 +38,13 @@
         </div>
 
 
-
         <div class="text-center mb-3">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <button type="submit" class="btn" style="background-color: #05516b; color: white">Sign in</button>
         </div>
+        <p class="text-center">No account yet? <a href="${pageContext.request.contextPath}/signup">Sign Up!</a></p>
     </form>
+
 </div>
 </div>
 
