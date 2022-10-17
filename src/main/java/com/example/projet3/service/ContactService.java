@@ -5,10 +5,12 @@ import com.example.projet3.repository.ContactRepository;
 import com.example.projet3.repository.EditContact;
 import com.example.projet3.repository.entity.Contact;
 import com.example.projet3.repository.CreateContact;
+import com.example.projet3.repository.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+
 @Service
 public class ContactService {
 
@@ -23,12 +25,12 @@ public class ContactService {
     }
 
 
-    public List<Contact> getAllContacts(String keyword) {
-        if(keyword != null) {
-            return this.contactRepository.findAllByLastname(keyword);
+    public List<Contact> getAllContacts(String keyword, User user) {
+        if (keyword != null) {
+            return this.contactRepository.findByLastnameOrFirstnameOrPhoneNumber(keyword, user.getEmail());
         }
 
-        return (List<Contact>) this.contactRepository.findAll();
+        return this.contactRepository.findAllByUserEmail(user.getEmail());
     }
 
     public Contact findContactById(Long id) {
@@ -42,7 +44,9 @@ public class ContactService {
                 .orElseThrow(() -> new ContactNotFoundException(id));
     }
 
-    public void createContact (CreateContact createContact) {
+    public void createContact(CreateContact createContact, User user) {
+
+
         Contact c = new Contact();
         c.setLastname(createContact.getLastname());
         c.setFirstname(createContact.getFirstname());
@@ -50,6 +54,7 @@ public class ContactService {
         c.setPhoneNumber(createContact.getPhoneNumber());
         c.setPictureUrl(createContact.getPictureUrl());
         c.setBirthDate(createContact.getBirthDate());
+        c.setUser(user);
 
         this.contactRepository.save(c);
     }
@@ -58,7 +63,7 @@ public class ContactService {
         this.contactRepository.deleteById(id);
     }
 
-    public void editContact (Long id, EditContact editContact) {
+    public void editContact(Long id, EditContact editContact) {
         Contact contact = this.contactRepository
                 .findById(id)
                 .orElseThrow(() -> new ContactNotFoundException(id));
@@ -73,12 +78,6 @@ public class ContactService {
         this.contactRepository.save(contact);
 
     }
-
-
-
-
-
-
 
 
 }

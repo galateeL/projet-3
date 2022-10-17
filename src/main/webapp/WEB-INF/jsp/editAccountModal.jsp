@@ -5,7 +5,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel2" style="font-family: 'Pacifico', cursive; color: #ff5630; font-size: 30px; text-align: center">Edit contact</h5>
+                <h5 class="modal-title" id="exampleModalLabel2" style="font-family: 'Pacifico', cursive; color: #ff5630; font-size: 30px; text-align: center">Edit my account</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -23,12 +23,7 @@
 
                     <div class="mb-2">
                         <label for="email-u" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email-u" name="email" value="${user.email}">
-                    </div>
-
-                    <div class="mb-2">
-                        <label for="password-u" class="form-label">Password</label>
-                        <input type="text" class="form-control" id="password-u" name="password">
+                        <input type="text" class="form-control" id="email-u" name="email" value="${user.email}" disabled="disabled">
                     </div>
 
 
@@ -40,6 +35,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abandon</button>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <button type="submit" class="btn" style="background-color: #a8eaa8; color:white">Confirm</button>
                     </div>
                 </form>

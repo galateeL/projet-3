@@ -6,6 +6,7 @@ import com.example.projet3.repository.EditUser;
 import com.example.projet3.repository.entity.Contact;
 import com.example.projet3.repository.entity.User;
 import com.example.projet3.service.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,14 +27,14 @@ public class UserController {
 
 
     @GetMapping("/signup")
-    public String displaySignUpForm(Model model){
+    public String displaySignUpForm(Model model) {
         model.addAttribute("createUser", new CreateUser());
         return "signUpView";
     }
 
     @PostMapping("/signup")
-    public String signUp(@Valid CreateUser createUser, BindingResult result, Model model){
-        if(result.hasErrors()) {
+    public String signUp(@Valid CreateUser createUser, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             model.addAttribute("createUser", createUser);
             return "signUpView";
         } else {
@@ -43,7 +44,7 @@ public class UserController {
     }
 
     @GetMapping("/signin")
-    public String displaySignInForm(){
+    public String displaySignInForm() {
         return "signInView";
     }
 
@@ -51,7 +52,7 @@ public class UserController {
     // Display specific account
     @GetMapping("/account")
     public String displaySpecifyAccount(Principal principal, Model model) {
-       String email =  principal.getName();
+        String email = principal.getName();
         User user = userService.findUserByEmail(email);
         model.addAttribute("user", user);
         return "accountDetail";
@@ -71,15 +72,10 @@ public class UserController {
     // Edit specific account
     @PostMapping("/account-edit")
     public String editSpecifyAccount(Principal principal, EditUser editUser) {
-        String email =  principal.getName();
+        String email = principal.getName();
         userService.editUser(editUser, email);
         return "redirect:/account";
     }
-
-
-    //        User user = userService.findUserByEmail(email);
-//        Long id = user.getId();
-
 
 
 }
