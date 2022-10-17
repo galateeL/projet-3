@@ -5,7 +5,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel2">Edit contact</h5>
+                <h5 class="modal-title" id="exampleModalLabel2" style="font-family: 'Pacifico', cursive; color: #ff5630; font-size: 30px; text-align: center">Edit contact</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -40,7 +40,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abandon</button>
-                        <button type="submit" class="btn btn-primary">Confirm</button>
+                        <button type="submit" class="btn" style="background-color: #a8eaa8; color:white">Confirm</button>
                     </div>
                 </form>
             </div>

@@ -11,11 +11,17 @@
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    </style>
+
     <title>Book project | Sign up</title>
 </head>
 <body>
-<h1>Sign up</h1>
+<h1 class="m-5" style="font-family: 'Pacifico', cursive; color: #05516b; font-size: 35px; text-align: center">Sign up</h1>
 
+<div class="row d-flex justify-content-center">
+    <div class="col-sm-4 col-xl-4 m-1">
 <form:form action="${pageContext.request.contextPath}/signup" method="post" modelAttribute="createUser">
 
     <div class="mb-3">
@@ -52,7 +58,7 @@
 
 
     <div class="text-center mb-3">
-        <form:button type="submit" class="btn btn-primary">Sign up</form:button>
+        <form:button type="submit" class="btn" style="background-color: #05516b; color: white">Sign up</form:button>
     </div>
 
 
@@ -71,26 +77,8 @@
 
 
 
-   <!-- <form method="post" action="${pageContext.request.contextPath}/signup">
-
-        <div class="mb-3">
-            <label class="form-label" for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
-        </div>
-
-
-        <div class="mb-3">
-            <label class="form-label" for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-
-
-
-        <div class="text-center mb-3">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <button type="submit" class="btn btn-primary">Sign up</button>
-        </div>
-    </form>-->
+</div>
+</div>
 
 
 </body>
