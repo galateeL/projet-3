@@ -1,10 +1,14 @@
 package com.example.projet3.repository;
 
+import com.example.projet3.repository.entity.Contact;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class EditContact {
 
-    private Long id;
+    private int id;
 
     private String lastname;
 
@@ -16,16 +20,39 @@ public class EditContact {
 
     private String pictureUrl;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
     public EditContact() {
     }
 
-    public Long getId() {
+//    public EditContact(int id, String lastname, String firstname, String email, String phoneNumber, String pictureUrl, LocalDate birthDate) {
+//        this.id = id;
+//        this.lastname = lastname;
+//        this.firstname = firstname;
+//        this.email = email;
+//        this.phoneNumber = phoneNumber;
+//        this.pictureUrl = pictureUrl;
+//        this.birthDate = birthDate;
+//    }
+//
+//public Contact toContact(){
+//        Contact c = new Contact();
+//
+//        c.setLastname(this.lastname);
+//        c.setFirstname(this.firstname);
+//        c.setEmail(this.email);
+//        c.setPictureUrl(this.pictureUrl);
+//        c.setPhoneNumber(this.phoneNumber);
+//        c.setBirthDate(this.birthDate);
+//        return c;
+//}
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
