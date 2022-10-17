@@ -1,6 +1,5 @@
 package com.example.projet3.service;
 
-import com.example.projet3.exception.UserNotFoundException;
 import com.example.projet3.repository.CreateUser;
 import com.example.projet3.repository.EditUser;
 import com.example.projet3.repository.UserRepository;
