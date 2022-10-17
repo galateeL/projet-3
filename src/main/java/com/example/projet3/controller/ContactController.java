@@ -35,7 +35,6 @@ public class ContactController {
     }
 
 
-
     //Display specific contact
     @GetMapping("/details/{id}")
     public String displaySpecifyContact(Model model, @PathVariable Long id) {
@@ -57,12 +56,12 @@ public class ContactController {
         return "addContactForm";
     }
 
+
     // Add contact - Save in DB
     @PostMapping("/add")
     public String addContact(CreateContact createContact) {
         contactService.createContact(createContact);
         return "redirect:/contacts/all";
-
     }
 
     // Edit contact - display form
