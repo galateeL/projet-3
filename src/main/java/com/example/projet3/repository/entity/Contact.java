@@ -1,9 +1,6 @@
 package com.example.projet3.repository.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -24,6 +21,9 @@ public class Contact {
     private String pictureUrl;
 
     private LocalDate birthDate;
+
+    @ManyToOne
+    private User user;
 
 
     public Contact() {
@@ -46,6 +46,24 @@ public class Contact {
         this.phoneNumber = phoneNumber;
         this.pictureUrl = pictureUrl;
         this.birthDate = birthDate;
+    }
+
+    public Contact(String lastname, String firstname, String email, String phoneNumber, String pictureUrl, LocalDate birthDate, User user) {
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.pictureUrl = pictureUrl;
+        this.birthDate = birthDate;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Long getId() {

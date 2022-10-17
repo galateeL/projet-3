@@ -16,6 +16,7 @@ public class CreateContact {
 
     private String pictureUrl;
 
+
    // private LocalDate birthDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;

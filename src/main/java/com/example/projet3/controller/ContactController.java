@@ -3,7 +3,9 @@ package com.example.projet3.controller;
 import com.example.projet3.repository.CreateContact;
 import com.example.projet3.repository.EditContact;
 import com.example.projet3.repository.entity.Contact;
+import com.example.projet3.repository.entity.User;
 import com.example.projet3.service.ContactService;
+import com.example.projet3.service.UserService;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.awt.print.Book;
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,16 +24,24 @@ import java.util.List;
 public class ContactController {
 
     private ContactService contactService;
-    public ContactController(ContactService contactService) {
+    private UserService userService;
+
+    public ContactController(ContactService contactService, UserService userService) {
         this.contactService = contactService;
+        this.userService = userService;
 
     }
 
     //Display all contacts
     @GetMapping("/all")
-    public String displayAllContacts(Model model, @Param("keyword") String keyword){
-        List<Contact> contactList = contactService.getAllContacts(keyword);
+    public String displayAllContacts(Principal principal, Model model, @Param("keyword") String keyword){
+
+            User user = userService.findUserByEmail( principal.getName());
+
+
+        List<Contact> contactList = contactService.getAllContacts(keyword, user);
         model.addAttribute("contacts", contactList);
+
         return "contactList";
     }
 
@@ -59,8 +70,10 @@ public class ContactController {
 
     // Add contact - Save in DB
     @PostMapping("/add")
-    public String addContact(CreateContact createContact) {
-        contactService.createContact(createContact);
+    public String addContact(Principal principal, CreateContact createContact) {
+        User user = userService.findUserByEmail( principal.getName());
+
+        contactService.createContact(createContact, user);
         return "redirect:/contacts/all";
     }
 

@@ -2,6 +2,7 @@ package com.example.projet3.repository.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -10,6 +11,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique=true)
     private String email;
 
     private String password;
@@ -19,6 +21,9 @@ public class User {
     private String lastname;
 
     private String pictureUrl;
+
+    @OneToMany(mappedBy = "user")
+    private List<Contact> contactList;
 
 
     public User() {
@@ -41,6 +46,13 @@ public class User {
         this.pictureUrl = pictureUrl;
     }
 
+    public List<Contact> getContactList() {
+        return contactList;
+    }
+
+    public void setContactList(List<Contact> contactList) {
+        this.contactList = contactList;
+    }
 
     public Long getId() {
         return id;
