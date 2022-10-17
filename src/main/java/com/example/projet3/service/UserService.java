@@ -1,8 +1,9 @@
 package com.example.projet3.service;
 
+import com.example.projet3.exception.UserNotFoundException;
 import com.example.projet3.repository.CreateUser;
+import com.example.projet3.repository.EditUser;
 import com.example.projet3.repository.UserRepository;
-import com.example.projet3.repository.entity.Contact;
 import com.example.projet3.repository.entity.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,27 @@ public class UserService {
 
     public User findUserByEmail(String email) {
         return this.userRepository.findByEmail(email);
+
+    }
+
+    public void editUser (EditUser editUser, String email) {
+
+        User user = this.userRepository
+                .findByEmail(email);
+
+
+               // .findById(id)
+             // .orElseThrow(() ->new UserNotFoundException(id));
+              // .orElseThrow(() ->new UserNotFoundException(email));
+
+        user.setLastname(editUser.getLastname());
+        user.setFirstName(editUser.getFirstName());
+        user.setEmail(editUser.getEmail());
+        user.setPassword(editUser.getPassword());
+        user.setPictureUrl(editUser.getPictureUrl());
+
+        this.userRepository.save(user);
+
 
     }
 

@@ -43,16 +43,13 @@
                         <input type="date" class="form-control" id="birthDate-c" name="birthDate" value="${contact.birthDate}">
                     </div>
 
-            </div>
+
             <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abandon</button>
                     <button type="submit" class="btn btn-primary">Confirm</button>
-                </form>
+            </div>
+            </form>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
