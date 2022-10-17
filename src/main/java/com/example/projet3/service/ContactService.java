@@ -5,9 +5,10 @@ import com.example.projet3.repository.ContactRepository;
 import com.example.projet3.repository.EditContact;
 import com.example.projet3.repository.entity.Contact;
 import com.example.projet3.repository.CreateContact;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ContactService {
 
     private ContactRepository contactRepository;
