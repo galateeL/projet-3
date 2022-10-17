@@ -10,15 +10,26 @@
 
     <title>PhoneBook | My account</title>
 </head>
-<body>
+    <body>
 
-<h1>My account</h1>
+    <header>
+        <jsp:include page="header.jsp"/>
+    </header>
 
-<p>${user.lastname}</p>
-<p>${user.firstName}</p>
-<p>${user.email}</p>
-<p>${user.password}</p>
-<img src="${user.pictureUrl}" alt=""/>
+    <h1>My account</h1>
 
-</body>
+    <p>${user.lastname}</p>
+    <p>${user.firstName}</p>
+    <p>${user.email}</p>
+    <img src="${user.pictureUrl}" alt=""/>
+
+
+    <jsp:include page="./editAccountModal.jsp"/>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+        Edit my account
+    </button>
+
+
+    </body>
 </html>
