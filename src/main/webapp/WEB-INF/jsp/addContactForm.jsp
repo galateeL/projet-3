@@ -13,6 +13,10 @@
     <title>PhoneBook | Add contact</title>
 </head>
 <body>
+<header>
+    <jsp:include page="header.jsp"/>
+</header>
+
 <h1>Add contact form</h1>
 <div class="row">
 

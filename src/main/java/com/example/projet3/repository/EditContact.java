@@ -26,27 +26,6 @@ public class EditContact {
     public EditContact() {
     }
 
-//    public EditContact(int id, String lastname, String firstname, String email, String phoneNumber, String pictureUrl, LocalDate birthDate) {
-//        this.id = id;
-//        this.lastname = lastname;
-//        this.firstname = firstname;
-//        this.email = email;
-//        this.phoneNumber = phoneNumber;
-//        this.pictureUrl = pictureUrl;
-//        this.birthDate = birthDate;
-//    }
-//
-//public Contact toContact(){
-//        Contact c = new Contact();
-//
-//        c.setLastname(this.lastname);
-//        c.setFirstname(this.firstname);
-//        c.setEmail(this.email);
-//        c.setPictureUrl(this.pictureUrl);
-//        c.setPhoneNumber(this.phoneNumber);
-//        c.setBirthDate(this.birthDate);
-//        return c;
-//}
 
     public int getId() {
         return id;

@@ -13,13 +13,12 @@
         <title>PhoneBook | Contact list</title>
     </head>
     <body>
+
     <header>
         <jsp:include page="header.jsp"/>
     </header>
 
     <h1>Contact list</h1>
-
-
 
         <c:forEach items="${contacts}" var="contact">
             <p class="card-text">${contact.lastname} ${contact.firstname}</p>

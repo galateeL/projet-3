@@ -12,6 +12,11 @@
         <title>PhoneBook | Contact detail</title>
     </head>
     <body>
+
+    <header>
+        <jsp:include page="header.jsp"/>
+    </header>
+
         <h1>Contact detail</h1>
         <p class="card-text">${contact.lastname} ${contact.firstname}</p>
         <p class="card-text">${contact.email}</p>
