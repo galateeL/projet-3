@@ -1,5 +1,7 @@
 package com.example.projet3.repository;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class CreateContact {
@@ -14,6 +16,8 @@ public class CreateContact {
 
     private String pictureUrl;
 
+   // private LocalDate birthDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
     public CreateContact() {

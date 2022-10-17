@@ -3,7 +3,9 @@ package com.example.projet3.service;
 import com.example.projet3.repository.CreateUser;
 import com.example.projet3.repository.UserRepository;
 import com.example.projet3.repository.entity.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
     private UserRepository userRepository;

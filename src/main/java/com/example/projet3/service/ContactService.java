@@ -5,9 +5,11 @@ import com.example.projet3.repository.ContactRepository;
 import com.example.projet3.repository.EditContact;
 import com.example.projet3.repository.entity.Contact;
 import com.example.projet3.repository.CreateContact;
+import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
-
+@Service
 public class ContactService {
 
     private ContactRepository contactRepository;
@@ -56,18 +58,19 @@ public class ContactService {
         this.contactRepository.deleteById(id);
     }
 
-    public void editContact(Long id, EditContact editContact){
-
-        Contact contact = contactRepository
+    public void editContact (Long id, EditContact editContact) {
+        Contact contact = this.contactRepository
                 .findById(id)
-                .orElseThrow(()-> new ContactNotFoundException(id));
+                .orElseThrow(() -> new ContactNotFoundException(id));
 
         contact.setLastname(editContact.getLastname());
         contact.setFirstname(editContact.getFirstname());
         contact.setEmail(editContact.getEmail());
-        contact.setPictureUrl(editContact.getPictureUrl());
         contact.setPhoneNumber(editContact.getPhoneNumber());
+        contact.setPictureUrl(editContact.getPictureUrl());
         contact.setBirthDate(editContact.getBirthDate());
+
+        this.contactRepository.save(contact);
 
     }
 
