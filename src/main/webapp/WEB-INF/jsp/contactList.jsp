@@ -13,9 +13,13 @@
         <title>PhoneBook | Contact list</title>
     </head>
     <body>
-        <h1>Contact list</h1>
+    <header>
+        <jsp:include page="header.jsp"/>
+    </header>
 
-        <a href="${pageContext.request.contextPath}/contacts/add" class="btn btn-primary">New contact</a>
+    <h1>Contact list</h1>
+
+
 
         <c:forEach items="${contacts}" var="contact">
             <p class="card-text">${contact.lastname} ${contact.firstname}</p>

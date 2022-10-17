@@ -12,4 +12,6 @@ public interface ContactRepository extends CrudRepository<Contact, Long> {
     @Query("SELECT c FROM Contact c WHERE c.lastname LIKE %?1%")
     List<Contact> findAllByLastname(String keyword);
 
+    List<Contact> findByLastnameOrFirstnameOrPhoneNumber(String lastName, String firstname, String phoneNumber);
+
 }

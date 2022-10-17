@@ -34,6 +34,8 @@ public class ContactController {
         return "contactList";
     }
 
+
+
     //Display specific contact
     @GetMapping("/details/{id}")
     public String displaySpecifyContact(Model model, @PathVariable Long id) {
